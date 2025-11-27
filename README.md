@@ -1,19 +1,44 @@
-<p align="center">
-<a href="https://t.me/rktechnoindians"><img title="Made in INDIA" src="https://img.shields.io/badge/MADE%20IN-INDIA-SCRIPT?colorA=%23ff8100&colorB=%23017e40&colorC=%23ff0000&style=for-the-badge"></a>
-</p>
+# ApkPatcher - Google OAuth Fix Edition
 
-<a name="readme-top"></a>
+[![GitHub](https://img.shields.io/badge/GitHub-baretoaldo-blue?style=for-the-badge&logo=github)](https://github.com/baretoaldo/ApkPatcher)
+[![Fixed](https://img.shields.io/badge/Google_OAuth-FIXED-success?style=for-the-badge)](https://github.com/baretoaldo/ApkPatcher)
 
+> **🔧 Modified Version:** This is a fixed version of ApkPatcher that resolves Google OAuth login issues in patched APKs.
 
-# ApkPatcher
+## ✅ What's New in This Fork
 
+### Google OAuth Login Fix
+- **Problem Solved:** Apps with "Login via Google" now work correctly after patching
+- **Selective SSL Bypass:** Google OAuth domains excluded from certificate manipulation
+- **API Capture Still Works:** Non-OAuth endpoints remain fully capturable
 
-<p align="center"> 
-<a href="https://t.me/rktechnoindians"><img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=800&size=35&pause=1000&color=F74848&center=true&vCenter=true&random=false&width=435&lines=ApkPatcher" /></a>
- </p>
+### Key Changes
+- ✅ Google OAuth login **SUCCESS** (accounts.google.com, oauth2.googleapis.com)
+- ✅ App API endpoints **CAPTURABLE** (api.yourapp.com, etc.)
+- ✅ Firebase/Google APIs **SUPPORTED** (with user certificates)
+- ✅ Backward compatible with all existing ApkPatcher features
 
+---
 
-Installation Method
+## 🎯 Why This Fork?
+
+**Original ApkPatcher Issue:**
+```
+[❌] Patch APK with Google OAuth
+[❌] Install and try "Login via Google"
+[❌] Result: Blank screen / No response / Login failed
+```
+
+**This Fixed Version:**
+```
+[✅] Patch APK with this fork
+[✅] Install and try "Login via Google"
+[✅] Result: Login SUCCESS! + API capture works!
+```
+
+---
+
+## 📦 Installation Method
 -------
 **💢 Requirement PKG 💢**
 
@@ -53,14 +78,21 @@ Uninstall ApkPatcher
     pip uninstall ApkPatcherX
 
 
-Usage
------
+---
 
-**ApkPatcher**
+## 🚀 Usage
 
-**Mode -i ➸ Smali Patcher (Input Your Apk Path)**
+### Basic Usage (Same as Original!)
 
-    ApkPatcher -i YourApkPath.apk
+**Patch APK with SSL Bypass**
+```bash
+ApkPatcher -i YourApp.apk
+```
+
+**With Custom Certificate**
+```bash
+ApkPatcher -i YourApp.apk -c YourCert.pem
+```
     
 `With Your Certificate ( Input Your pem/ crt / cert Path )`
 
@@ -154,12 +186,106 @@ Usage
 
     ApkPatcher -O
 
-Note
-----
+---
 
-## 🇮🇳 Welcome By Techno India 🇮🇳
+## 🧪 Testing Google OAuth Fix
 
-[![Telegram](https://img.shields.io/badge/TELEGRAM-CHANNEL-red?style=for-the-badge&logo=telegram)](https://t.me/rktechnoindians)
-  </a><p>
-[![Telegram](https://img.shields.io/badge/TELEGRAM-OWNER-red?style=for-the-badge&logo=telegram)](https://t.me/RK_TECHNO_INDIA)
-</p>
+### Test Case: TikTok/Instagram/Any App with Google Login
+
+```bash
+# 1. Patch the APK
+ApkPatcher -i TikTok.apk -c /sdcard/HttpCanary/certs/HttpCanary.pem
+
+# 2. Install patched APK
+adb install TikTok_Patched.apk
+
+# 3. Open app and test
+# - Click "Login via Google"
+# - Expected: ✅ LOGIN SUCCESS (not blank screen!)
+# - Check HttpCanary: ✅ API calls captured (non-OAuth traffic)
+```
+
+### Expected Results
+
+| Test | Before (Original) | After (This Fork) |
+|------|-------------------|-------------------|
+| Google OAuth Login | ❌ Failed | ✅ **SUCCESS** |
+| API Capture | ✅ Works | ✅ **Works** |
+| Overall | ❌ Unusable | ✅ **Fully Functional** |
+
+---
+
+## 🔍 Technical Details
+
+### What Changed?
+
+**File Modified:** `ApkPatcher/Patch/Cert_Net_Config.py`
+
+**3-Tier Priority System:**
+
+1. **Priority 1: Google OAuth (NO BYPASS)**
+   - `accounts.google.com` → Normal SSL validation
+   - `oauth2.googleapis.com` → Normal SSL validation
+   - Result: **Login works!** ✅
+
+2. **Priority 2: Google APIs (USER CERT ALLOWED)**
+   - `googleapis.com`, `firebaseio.com`, `fcm.googleapis.com`
+   - Result: Capturable with user certificates ⚠️
+
+3. **Priority 3: All Other Domains (FULL BYPASS)**
+   - `api.yourapp.com`, `cdn.yourapp.com`, etc.
+   - Result: **Fully capturable!** ✅
+
+### Why This Works?
+
+Google OAuth servers detect certificate manipulation and reject authentication. By excluding OAuth domains from SSL bypass, we allow normal certificate validation for login while maintaining full capture capability for app-specific endpoints.
+
+---
+
+## 📖 Documentation
+
+- **[GOOGLE_OAUTH_FIX_README.md](GOOGLE_OAUTH_FIX_README.md)** - Detailed fix explanation
+- **Original ApkPatcher:** [TechnoIndian/ApkPatcher](https://github.com/TechnoIndian/ApkPatcher)
+
+---
+
+## 🙏 Credits
+
+- **Original ApkPatcher:** [TechnoIndian](https://github.com/TechnoIndian/ApkPatcher)
+- **Google OAuth Fix:** [baretoaldo](https://github.com/baretoaldo)
+- **Community:** [@rktechnoindians](https://t.me/rktechnoindians)
+
+---
+
+## ⚖️ Legal Disclaimer
+
+⚠️ **Educational & Security Research Purposes Only**
+
+**Use this tool ONLY for:**
+- ✅ Testing your own applications
+- ✅ Bug bounty programs (with proper authorization)
+- ✅ Security research (ethical & legal)
+
+**DO NOT use for:**
+- ❌ Piracy or bypassing premium features
+- ❌ Hacking applications without authorization
+- ❌ Violating Terms of Service
+- ❌ Any illegal activities
+
+**Use at your own risk.** The authors are not responsible for misuse of this tool.
+
+---
+
+## 📞 Support
+
+- **GitHub Issues:** [Report bugs here](https://github.com/baretoaldo/ApkPatcher/issues)
+- **Original Project:** [TechnoIndian/ApkPatcher](https://github.com/TechnoIndian/ApkPatcher)
+- **Community:** [Telegram Channel](https://t.me/rktechnoindians)
+
+---
+
+## 📝 Note
+
+This is a **modified fork** for educational purposes. All credits for the original ApkPatcher go to [TechnoIndian](https://github.com/TechnoIndian). This fork specifically addresses Google OAuth login issues while maintaining all original functionality.
+
+**Star ⭐ this repo if the Google OAuth fix helped you!**
