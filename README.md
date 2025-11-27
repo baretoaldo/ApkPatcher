@@ -48,28 +48,27 @@
 
 **💢 PYPI ( Just Testing ) 💢**
 
-    pip install ApkPatcherX
-
-[![PyPI](https://img.shields.io/badge/pypi-3776AB?style=for-the-badge&logo=python&logoColor=FFD43B)](https://pypi.org/project/ApkPatcherX) [![Version](https://img.shields.io/pypi/v/ApkPatcherX?label=&style=for-the-badge&color=FF8C00&labelColor=FF8C00)](https://pypi.org/project/ApkPatcherX)
+    pip install git+https://github.com/baretoaldo/ApkPatcher.git
 
 
-**1st. Method**
+**Install This Fixed Version:**
 
-`💢 For Latest Commit ( From Main  Branch )  💢`
+```bash
+# Method 1: Direct from GitHub (Recommended)
+pip install git+https://github.com/baretoaldo/ApkPatcher.git
 
-    pip install --force-reinstall https://github.com/TechnoIndian/ApkPatcher/archive/refs/heads/main.zip
+# Method 2: From ZIP
+pip install --force-reinstall https://github.com/baretoaldo/ApkPatcher/archive/refs/heads/main.zip
 
-`Or`
-
-    pip install --force-reinstall https://github.com/TechnoIndian/ApkPatcher/archive/refs/heads/main.tar.gz
-
-`Or`
-
-    curl -Ls https://github.com/TechnoIndian/Tools/releases/download/Tools/ApkPatcher.sh | bash
+# Method 3: Clone and install
+git clone https://github.com/baretoaldo/ApkPatcher.git
+cd ApkPatcher
+pip install .
+```
 
 **2nd. Method**
 
-    pkg install python git && pip install git+https://github.com/TechnoIndian/ApkPatcher.git
+    pkg install python git && pip install git+https://github.com/baretoaldo/ApkPatcher.git
 
 
 Uninstall ApkPatcher
@@ -251,7 +250,7 @@ Google OAuth servers detect certificate manipulation and reject authentication. 
 
 ## 🙏 Credits
 
-- **Original ApkPatcher:** [TechnoIndian](https://github.com/TechnoIndian/ApkPatcher)
+- **Original ApkPatcher:** [TechnoIndian](https://github.com/baretoaldo/ApkPatcher)
 - **Google OAuth Fix:** [baretoaldo](https://github.com/baretoaldo)
 - **Community:** [@rktechnoindians](https://t.me/rktechnoindians)
 
