@@ -1,9 +1,35 @@
-# ApkPatcher - Google OAuth Fix Edition
+<p align="center">
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android"/>
+</p>
 
-[![GitHub](https://img.shields.io/badge/GitHub-baretoaldo-blue?style=for-the-badge&logo=github)](https://github.com/baretoaldo/ApkPatcher)
-[![Fixed](https://img.shields.io/badge/Google_OAuth-FIXED-success?style=for-the-badge)](https://github.com/baretoaldo/ApkPatcher)
+<h1 align="center">ApkPatcher - Google OAuth Fix Edition</h1>
 
-> **🔧 Modified Version:** This is a fixed version of ApkPatcher that resolves Google OAuth login issues in patched APKs.
+<p align="center">
+  <a href="https://github.com/baretoaldo/ApkPatcher">
+    <img src="https://img.shields.io/badge/Author-baretoaldo-blue?style=for-the-badge&logo=github" alt="Author"/>
+  </a>
+  <a href="https://github.com/baretoaldo/ApkPatcher/stargazers">
+    <img src="https://img.shields.io/github/stars/baretoaldo/ApkPatcher?style=for-the-badge&logo=github" alt="Stars"/>
+  </a>
+  <a href="https://github.com/baretoaldo/ApkPatcher/network/members">
+    <img src="https://img.shields.io/github/forks/baretoaldo/ApkPatcher?style=for-the-badge&logo=github" alt="Forks"/>
+  </a>
+  <a href="https://github.com/baretoaldo/ApkPatcher/issues">
+    <img src="https://img.shields.io/github/issues/baretoaldo/ApkPatcher?style=for-the-badge&logo=github" alt="Issues"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Google_OAuth-FIXED-success?style=for-the-badge&logo=google" alt="OAuth Fixed"/>
+  <img src="https://img.shields.io/badge/Split_APK-SUPPORTED-orange?style=for-the-badge&logo=android" alt="Split APK"/>
+  <img src="https://img.shields.io/badge/SSL_Bypass-SELECTIVE-yellow?style=for-the-badge&logo=letsencrypt" alt="SSL Bypass"/>
+</p>
+
+<p align="center">
+  <b>🔧 Modified Version:</b> Fixed version of ApkPatcher that resolves Google OAuth login issues in patched APKs
+</p>
+
+---
 
 ## ✅ What's New in This Fork
 
