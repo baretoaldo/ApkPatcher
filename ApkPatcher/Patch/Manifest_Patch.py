@@ -29,6 +29,71 @@ def Fix_Manifest(manifest_path, smali_folders, isPKG):
             r'\s+<[^>]*"(com.pairip.licensecheck)[^"]*"[^>]*/>' if isPC else r'\s+<[^>]*"com.(pairip.licensecheck|android.vending.CHECK_LICENSE)[^"]*"[^>]*/>',
             r'',
             'CHECK_LICENSE'
+        ),
+        
+        # ---------------- Ads Permissions ----------------
+        (
+            r'\s+<uses-permission[^>]*android:name="com\.google\.android\.gms\.permission\.AD_ID"[^>]*/>',
+            r'',
+            'AD_ID Permission'
+        ),
+        
+        # ---------------- Ads Meta-data ----------------
+        (
+            r'\s+<meta-data[^>]*android:name="com\.google\.android\.gms\.ads\.(APPLICATION_ID|AD_MANAGER_APP)"[^>]*/>',
+            r'',
+            'AdMob/AdManager Meta-data'
+        ),
+        (
+            r'\s+<meta-data[^>]*android:name="com\.facebook\.sdk\.ApplicationId"[^>]*/>',
+            r'',
+            'Facebook Ads Meta-data'
+        ),
+        (
+            r'\s+<meta-data[^>]*android:name="applovin\.sdk\.key"[^>]*/>',
+            r'',
+            'AppLovin Meta-data'
+        ),
+        
+        # ---------------- Ads Activities ----------------
+        (
+            r'\s+<activity[^>]*android:name="com\.google\.android\.gms\.ads\.(AdActivity|OutOfContextTestingActivity)"[^/>]*(?:/>|>[\s\S]*?</activity>)',
+            r'',
+            'AdMob Activities'
+        ),
+        (
+            r'\s+<activity[^>]*android:name="com\.facebook\.ads\.(Ad|InterstitialAd)Activity"[^/>]*(?:/>|>[\s\S]*?</activity>)',
+            r'',
+            'Facebook Ads Activities'
+        ),
+        (
+            r'\s+<activity[^>]*android:name="com\.(unity3d\.ads|applovin|ironsource|startapp|chartboost|vungle|mopub|inmobi|tapjoy)\..*"[^/>]*(?:/>|>[\s\S]*?</activity>)',
+            r'',
+            'Third-party Ads Activities'
+        ),
+        
+        # ---------------- Ads Services ----------------
+        (
+            r'\s+<service[^>]*android:name="com\.google\.android\.gms\.ads\.(AdService|identifier\.service\.AdvertisingIdService)"[^/>]*(?:/>|>[\s\S]*?</service>)',
+            r'',
+            'AdMob Services'
+        ),
+        (
+            r'\s+<service[^>]*android:name="com\.(facebook|unity3d|applovin|ironsource|startapp)\.ads\..*"[^/>]*(?:/>|>[\s\S]*?</service>)',
+            r'',
+            'Ads Services'
+        ),
+        
+        # ---------------- Ads Receivers ----------------
+        (
+            r'\s+<receiver[^>]*android:name="com\.google\.android\.gms\.ads\.(AdMob|Receiver)"[^/>]*(?:/>|>[\s\S]*?</receiver>)',
+            r'',
+            'AdMob Receivers'
+        ),
+        (
+            r'\s+<receiver[^>]*android:name="com\.(facebook|unity3d|applovin|ironsource|startapp)\.ads\..*"[^/>]*(?:/>|>[\s\S]*?</receiver>)',
+            r'',
+            'Ads Receivers'
         )
     ]
 

@@ -11,7 +11,7 @@ from ApkPatcher.Utils.Decompile_Compile import Decompile_Apk, Recompile_Apk, Fix
 
 from ApkPatcher.Patch.AES import Copy_AES_Smali
 from ApkPatcher.Patch.Smali_Patch import Smali_Patch
-from ApkPatcher.Patch.Ads_Patch import Ads_Smali_Patch
+from ApkPatcher.Patch.Ads_Patch import Ads_Smali_Patch, Resource_Ads_Patch
 from ApkPatcher.Patch.Spoof_Patch import Patch_Random_Info
 from ApkPatcher.Patch.Cert_Net_Config import Write_Net_Config
 from ApkPatcher.Patch.Flutter_SSL_Patch import Patch_Flutter_SSL
@@ -156,6 +156,7 @@ def RK_Techno_IND():
     # ---------------- Remove Ads ----------------
     if args.Remove_Ads:
         Ads_Smali_Patch(smali_folders)
+        Resource_Ads_Patch(decompile_dir)
 
     # ---------------- Fake / Spoof Device Info ----------------
     if args.Random_Info:
